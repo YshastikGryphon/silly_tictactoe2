@@ -1,0 +1,207 @@
+:root {
+  --clr-bg: #2d3035;
+  --clr-bg-light: #393e46;
+  --clr-bg-lighter: #505661;
+  --grad-aside-btn: linear-gradient(0deg, #393e46 0, #505661 100%);
+  --clr-accent: #ffd369;
+  --clr-accent-hover: #ffe7ad;
+  --clr-txt: #eee;
+  --clr-txt-darker: #7e8998;
+  --clr-help-bg: rgba(0,0,0,0.8);
+  --clr-help-txt: #fff;
+}
+:root {
+  --font-family: 'Arial', 'Helvetica', 'sans-serif';
+  --font-h1: 600 52px/54px var(--font-family);
+  --margin-h1: 40px;
+  --font-h2: 500 32px/36px var(--font-family);
+  --margin-h2: 28px;
+  --font-h3: 500 24px/28px var(--font-family);
+  --margin-h3: 20px;
+  --font-base: 400 18px/24px var(--font-family);
+  --margin-base: 20px;
+  --font-small: 400 14px/18px var(--font-family);
+  --margin-small: 12px;
+  --font-tiny: 300 12px/14px var(--font-family);
+  --margin-tiny: 8px;
+}
+@media (max-width: 1200px) {
+  :root {
+    --font-h1: 600 44px/48px var(--font-family);
+    --margin-h1: 32px;
+    --font-h2: 500 28px/32px var(--font-family);
+    --margin-h2: 24px;
+    --font-h3: 500 22px/26px var(--font-family);
+    --font-base: 400 16px/20px var(--font-family);
+  }
+}
+@media (max-width: 600px) {
+  :root {
+    --font-h1: 600 28px/32px var(--font-family);
+    --margin-h1: 28px;
+    --font-h2: 500 24px/28px var(--font-family);
+    --margin-h2: 20px;
+    --font-h3: 500 20px/24px var(--font-family);
+    --margin-h3: 12px;
+    --font-base: 400 14px/18px var(--font-family);
+    --margin-base: 12px;
+    --font-small: 400 12px/16px var(--font-family);
+    --margin-small: 8px;
+    --font-tiny: 300 10px/12px var(--font-family);
+    --margin-tiny: 6px;
+  }
+}
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-family);
+  background: var(--clr-bg);
+  color: var(--clr-txt);
+}
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+  padding: 0 16px;
+}
+.tictactoe {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 40px 0;
+  padding: 24px;
+  background: var(--clr-bg-lighter);
+  border-radius: 12px;
+}
+.tictactoe__title {
+  text-align: center;
+  font-size: 32px;
+  line-height: 1.15;
+  margin-bottom: 60px;
+}
+.tictactoe__text {
+  font-size: 24px;
+  line-height: 1.15;
+}
+.tictactoe__restart {
+  display: flex;
+  justify-content: center;
+}
+.tictactoe__restart-btn {
+  position: relative;
+}
+.tictactoe__field {
+  position: relative;
+}
+.tictactoe__field::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(46,58,56,0.25);
+  font-size: 24px;
+  line-height: 1.15;
+  color: #fff;
+  text-shadow: 0 0 12px #000;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+.tictactoe__field.--is-won::after {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+.tictactoe__field._pl1::after {
+  content: 'Игрок 1 (X) победил';
+}
+.tictactoe__field._pl2::after {
+  content: 'Игрок 2 (O) победил';
+}
+.tictactoe__table {
+  border-collapse: collapse;
+}
+.tictactoe__table-row-cell {
+  border: 1px solid #808080;
+}
+.tictactoe__table-row-cell-symbol {
+  padding: 0;
+  background: transparent;
+  outline: 0;
+  border: none;
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 48px;
+  line-height: 1;
+  opacity: 0.75;
+  transition: 0.3s ease;
+}
+.tictactoe__table-row-cell-symbol::before {
+  transition: 0.3s ease;
+}
+.tictactoe__table-row-cell-symbol._tic::before {
+  content: 'X';
+  color: #ff0;
+  color: var(--pl-1);
+  font: inherit;
+}
+.tictactoe__table-row-cell-symbol._tac::before {
+  content: 'O';
+  color: #f0f;
+  color: var(--pl-2);
+  font: inherit;
+}
+.tictactoe__table-row-cell-symbol._protecc {
+  opacity: 1;
+  pointer-events: none;
+}
+.tictactoe__table-row-cell-symbol._protecc::before {
+  text-shadow: 0 0 32px currentColor;
+}
+.tictactoe__settings {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tictactoe__settings-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.tictactoe__settings-row-name {
+  font-size: 18px;
+  line-height: 1;
+}
+.tictactoe__settings-row-color {
+  padding: 0;
+  height: 24px;
+  width: 32px;
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
