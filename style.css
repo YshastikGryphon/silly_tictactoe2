@@ -133,10 +133,10 @@ p {
   pointer-events: all;
 }
 .tictactoe__field._pl1::after {
-  content: 'Игрок 1 (X) победил';
+  content: '(X) won';
 }
 .tictactoe__field._pl2::after {
-  content: 'Игрок 2 (O) победил';
+  content: '(O) won';
 }
 .tictactoe__table {
   border-collapse: collapse;

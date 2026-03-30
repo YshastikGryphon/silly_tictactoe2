@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ];
       const _htmlElementField = this._htmlElementField;
       let protectedTurns = 1;
-      let maxSymbols = 4;
+      let maxSymbols = 5;
       let _curTurn = 0;
       let _memory = [];
       let pl1protected = [];
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (hit >= 3) {
             _htmlElementField.classList.add('--is-won');
             _htmlElementField.classList.add('_pl1');
-            console.log('1 победил')
+            console.log('1 won')
           };
 
           hit = 0;
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (hit >= 3) {
             _htmlElementField.classList.add('--is-won');
             _htmlElementField.classList.add('_pl2');
-            console.log('2 победил')
+            console.log('2 won')
           };
         });
       };
