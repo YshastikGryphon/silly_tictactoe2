@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [2,5,8],
       ];
       const _htmlElementField = this._htmlElementField;
-      let protectedTurns = 1;
+      let protectedTurns = 0;
       let maxSymbols = 5;
       let _curTurn = 0;
       let _memory = [];
